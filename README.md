@@ -139,3 +139,369 @@ readlink FILE; echo $?       // This returns 1 if it's a hard link and 0 if it's
 
 ![image](https://user-images.githubusercontent.com/59536110/178111192-2cf93ae4-5499-4ce4-8462-3544e4534c69.png)
 
+16. What do you mean by GUI Scripting?
+The GUI (Graphical User Interface) is a client/server interface that uses graphical icons and visual indicators to allow users to interact with devices. Specifically, it is used to control a computer and its applications. A wide variety of applications are supported, and it is largely dependent on the operating system.
+
+17. What is the shebang line in shell scripting?
+Shell scripts or programs often contain shebang at the top. In general, the Shebang (the series of characters "#!") is used to indicate the operating system to use a particular interpreter to process the rest of the file. Here, the symbol '#' is referred to as hash, and "!" is referred to as bang. This usually aids developers in avoiding repetitive work. Scripts are generally executed by the engine; therefore, shebang determines the location of the engine that will be used to run the script. 
+
+Example:  
+
+#!/bin/bash  
+
+In addition, this line also specifies which shell to use.
+
+18. What is a file system? Write down the four core components of a Linux file system.
+Generally, file systems are referred to as the collections of files, which include information related to those files. It would be impossible to tell where one piece of data stops and the next begins without a file system. There are four blocks in a file system: 
+
+Super Block: A superblock contains information about a file system, including block size, group size, usage statistics, empty/filled blocks, inode table size & location, and so on. One of the tools used to describe a file system, along with inodes, entries, and files, is the superblock. Multiple superblocks are created with the file system, as the superblock contains critical information.  
+Boot Block: Located on the disk label, a boot block is a special set of blocks that contains data or information on the disk layout. Normally, this block contains the bootstrap loader program, which a user runs upon launching the host computer. The boot block remains blank if the file system is not used for boot.    
+Data Block: Also called storage blocks, data blocks contain the remainder of the space allocated to the file system. The data block's size is measured at the time of file system creation. For a regular file, the content of files is contained in the data blocks. For directories, the inode number and file name of the files are contained in the data blocks.  
+Inode: Inodes contain information about each file in the filesystem. Normally, an inode doesn't contain a file's name, which is located in a directory instead.  An inode contains information such as the type of file, the permission bits, the owner, the group, the file size, and the time when the file was modified.
+19. Name the alternative command for echo.
+The tput command is an alternative command for echo. We can use this command to control how the output is displayed.  Additionally, shell scripts can do things such as underline text and center text, regardless of the size of the screen.
+
+20. Explain the way you can connect to a database server.
+Open client driver comes with the isql utility that can be used to connect to a database server from Linux. Here's how to do it: 
+
+isql –S serverName –U username –P password 
+
+21. What is the importance of $#?
+$# usually holds the number of arguments, although it may be different for functions. To put it simply, it was used to store the number of command-line arguments passed to a shell script.
+
+22. Write the command that is used to execute a shell file.
+Firstly, use the chmod command to set execute permission on your script as shown below: 
+
+chmod +x script-name-here.sh 
+
+Secondly, run or execute your script as follows: 
+
+./script-name-here.sh 
+
+Alternatively, you can execute shell script by: 
+
+sh script-name-here.sh
+
+23. Name the command that can be used to find out the number of arguments passed to the script?
+The following command will display the number of arguments passed to the script: echo $ #
+
+24. How long does a variable in a shell script last?
+Variables inside shell scripts have a lifespan of only as long as the execution lasts.
+
+25. What does the . (dot) indicate at the beginning of the file name? How can it be listed?
+If the file name begins with ".", it is a hidden file. When a dot appears at the beginning of a filename, the file is hidden in most file managers and shell programs. A Shell usually lists all the files except hidden files when you try to list the files in a shell. Despite this, hidden files can be found in the directory. The Is command must be run with the "–a" flag if you wish to see hidden files.
+
+26. What is the use of the "$?" command?
+By using the command "$?", you can find out the status of the last command executed.
+
+27. What is the best way to run a script in the background?
+For a script to run in the background, simply add "&" at the end of the command.
+
+Example:
+
+script.sh &
+
+command &
+
+Shell Scripting Interview Questions for Experienced
+28. What do you mean by crontab?
+Crontab stands for "cron table," meaning that it makes use of the cron scheduler to perform tasks. In other words, it is the list of commands that you wish to run on a regular schedule and the command that will let you manage it. It is possible to view or edit the table of commands using the crontab command. In addition to the schedule, the term "Crontab" also refers to the name of the program used to edit the schedule.
+
+29. Name two files of crontab command.
+cron.deny and cron.allow are two files in the /etc/cron.d directory that controls access to the crontab command. Crontab command tasks such as creating, editing, displaying, or removing crontab files are relegated to specific users through these files. Both files usually consist of a list of user names, one user name per line. Together, these access control files perform the following functions:
+
+cron.allow decides which users are allowed to run the crontab command.
+cron.deny decides which users are denied from using the crontab command.
+When cron.allow or cron.deny doesn't exist, superuser privileges are required to run it.
+30. Name the command that is used to take the backup.
+The backup is taken using the tar command. Tar is an acronym for tape archive and is used to create backups using tar, gzip, and bzip. Files can be saved and restored from and to a tape using this command. In this, files and directories are generally compressed into tarballs, an archive file. For this purpose, it is among the most widely used commands. Furthermore, the tarball can be easily moved from one server to another.
+
+31. Write the difference between $* and $@
+Unlike $@, where each quoted argument is treated as a separate argument, $* treats each positional parameter as a single argument.
+
+32. Name the command that is used to compare the strings in a shell script.
+To compare text strings, use the test command. By comparing each character in each string, the test command usually compares text strings.  In most cases, tests are generally included as a conditional execution of shell commands. It can be used for:
+
+Comparison of file attributes
+Comparison of strings
+Comparing basic arithmetic operations
+Using square brackets ([ and ]) around the EXPRESSION is equivalent to testing it with the test. 
+
+Syntax of test command: 
+
+test EXPRESSION
+test EXPRESSION && true-command
+test EXPRESSION || false-command
+test EXPRESSION && true-command || false-command
+Examples:  
+
+test 50 -gt 40 && echo "Yes" || echo "No"
+Because 50 is greater than 40, this command prints the text "Yes".
+
+["Excellent" = "Excellent"]; echo $?
+As the two strings are identical, this command prints "0" because the expression is true.
+
+33. Write down the Syntax for all the loops in Shell Scripting.
+In shell scripting, you can use three looping statements as given below:
+
+while statement
+for statement
+until statement
+Syntax is as follows:  
+
+For Loop: Loops that operate on lists of items are known as loops. Each item in the list receives the same set of commands.
+Syntax: 
+
+ for var in word1 word2 ... wordN 
+do   
+        Statement to be executed  
+done
+Example: 
+
+for a in 1 2 3 4 5 6 7 8 9 10 
+do 
+    if [ $a == 3 ] 
+    then 
+        break 
+    fi 
+    echo "Iteration no $a" 
+done 
+Output” 
+
+$bash -f main.sh 
+Iteration no 1 
+Iteration no 2 
+While Loop: It involves evaluating a command first and then executing a loop based on the result. The loop will be terminated if the command raises to false.
+Syntax:  
+
+while command 
+do 
+    Statement to be executed 
+done
+Example:  
+
+a=0 
+while [ $a -lt 3 ] 
+do  
+    echo $a 
+    a=`expr $a + 1` 
+done 
+Output: 
+
+$bash -f main.sh 
+0 
+1 
+2 
+3 
+Until Loop: As often as the condition/command evaluates to false, the until loop is executed. Once the condition or command becomes true, the loop terminates.
+Syntax: 
+
+until command 
+do  
+         Statement to be executed until command is true 
+done
+Example: 
+
+a=0 
+until [ $a -gt 3 ] 
+do  
+    echo $a 
+    a=`expr $a + 1` 
+done 
+ 
+Output: 
+
+$bash -f main.sh 
+0 
+1 
+2 
+3 
+34. What are interactive and non-interactive shells?
+Interactive shell: /bin/bash and /bin/sh is interactive shell. It is a non-login shell that gets started from a command line. It first copies the parent environment and then invokes.
+
+Non-Interactive shell: /sbin/nologin shell is non-interactive shell. It is present when the shell script is running and just inherits the parent's environment.
+
+35. How will you pass and access arguments to a script in Linux?
+In scripts, arguments are passed as follows: 
+
+scriptName "Arg1" "Arg2"…."Argn" 
+
+Arguments in a script can be accessed as follows: 
+
+ $1 , $2 .. $n 
+
+36. What do you mean by the “s” permission bit in a file?
+The SUID (Set User ID) bit is known as the "s" bit. SUIDS are special file permissions for executable files that enable other users to run the file as the file owner. There will be an s (to indicate SUID) special permission for the user instead of the normal x, which represents execute permissions. A file that has the "s" bit set will grant the process the rights of the file's owner while the program is running.
+
+Example: 
+
+Executing the "passwd" command to change the password, for example, allows the user to write the new password to the shadow file even though its owner is "root".
+
+37. How will you debug a shell script?
+With set, you can turn on or off debugging options in the shell: 
+
+Set -x: This displays commands and their arguments as they are being executed.
+Set -v: It displays shell input lines in real-time as they are read.
+38. What is the best way to debug the shell script/program problems?
+Following are some common methods of debugging a script:
+
+The shell script can be modified to include debug statements to display the information that can be useful in identifying the problem.   
+By setting -x in the script, we can enable debugging.
+39. What is the importance of sed command and awk command?
+sed Command: sed command is an acronym for stream editor. It is used for editing a file without using an editor. The SED command performs a variety of operations on files, such as searching, finding and replacing, inserting and deleting. However, substitution or find and replace are the most commonly used features of SED.
+Syntax: sed options file 
+Example: Execution over Shell Interpreter/Editor
+/u/user1/Shell_Scripts_2020> echo "Hi Gourav" | sed 's/Hi/Hello/' 
+In this case, “s” command in sed replaces the string Hi with “Hello”. 
+
+Output: 
+
+Hello Gourav 
+awk Command: The command is a scripting language generally used to manipulate data and generate reports. There is no need to compile it and users are allowed to have access to a variable, string functions, numeric functions, and logical operations.
+Syntax: awk options File Name 
+Example: Script/Code
+/u/user1/Shell_Scripts_2017> cat > script10 
+Hello Aisha 
+Hello Rohan 
+Hello Gourav 
+An awk command/utility assigns variables in following way: 
+
+$0 -> For whole line (e.g. Hello Aisha)  
+
+$1 -> For the first field i.e. Hello  
+
+$2 -> For the second field 
+
+Execution over Shell Interpreter/Editor 
+
+awk ‘{print $0}’ script10 
+The above script prints all the 3 lines completely. 
+
+Output: 
+
+Hello Aisha 
+Hello Rohan 
+Hello Gourav 
+Execution over Shell Interpreter/Editor 
+
+awk ‘{print $1}’ script10 
+The above script prints only the first word i.e., Hello from each line. 
+
+Output: 
+
+Hello 
+Hello 
+Hello
+40. Write the difference between “=” and “==”.
+= operator: Assigning the value into a variable is accomplished by using the = operator. It is referred to as the assignment operator.
+Example: Suppose variable a holds 5 and variable b holds 2, then: 
+a = $b;              #Would assign value of b to a 
+== operator: This is used to compare strings. In the double equals operator, both operands are compared. If they are equal, it returns true, otherwise, it returns false.
+Example: Suppose variable a holds 5 and variable b holds 2, then:
+[ $a == $b ];      #Comparing the values of a and b.
+41. Name the command that is used to display the shell's environment variable.
+Shell functions, along with other Linux programs, are controlled by environmental variables.   Any child process of the shell has access to an environment variable. These variables are necessary for some programs to function properly. env or printenv commands can be used to display the shell's environment variables.
+
+42. Name different commands that are available to check the disk usage.
+The following commands are available to check disk space usage:
+
+df – It is used to find out how much space is left on a disk.
+du – With this command, you can find out how much disk space the specified files and each subdirectory take up.
+dfspace – Using this command, you can check the amount of free disk space in MB.
+43. What do you mean by metacharacters?
+In a data field or program, metacharacters are special characters that provide information about other characters. In shells, they're called regular expressions.  A character that is neither a letter nor a number is generally considered a metacharacter. Using shell metacharacters, you can group together commands, redirect and pipe input/output, put commands in the background, reduce the size of file names and path names, etc. You can use them as wildcards to specify a file name without typing in the file's full name. The most common metacharacters are as follows:
+
+Asterisk (*): Use the * to match any character.
+Question Mark (?): It matches a single character in the filename.
+Brackets ([…]):  The metacharacters used here match some specified characters.
+Hyphen (-): When placed within [] (brackets), the - metacharacter matches a specified range.
+44. How will you find total shells available in your system?
+Within your system, there are several shells available. If you want to find all the shells on the system, you can use $ cat /etc/shells. 
+
+Example: 
+
+$ cat /etc/shells 
+
+Execution over Shell Interpreter/Editor: 
+
+$ cat /etc/shells 
+
+Output: 
+
+/bin/sh 
+
+/bin/bash 
+
+/sbin/nologin 
+
+/bin/ksh 
+
+/bin/csh
+
+45. Explain how you will open a read-only file in Unix/Shell.
+You can open a read-only file by: vi –R <Filename>
+
+46. Name the command that one should use to know how long the system has been running.
+Using the Uptime command, you can see how long your system has been active. You can also determine the number of users with running sessions, and the average system load for 1, 5, and 15 minutes. The information displayed at once can also be filtered based on your specified options. 
+
+Example: $ uptime   
+
+Entering the above command at the shell prompt, namely $ uptime, will produce the following output:
+
+9:21am  up 86 day(s), 11:46,  3 users,  load average: 2.24, 2.18, 2.16
+
+47. Write the difference between $$ and $!?
+You can use $$ to get the process id of the current process. However, $! displays the process id for a background process that recently went away.
+
+48. Write difference between grep and find command.
+Grep command: This command facilitates searching and displaying content based on regular expressions specified by the user. Using the Grep command, one can search in a file for patterns. Grep command have the following syntax:
+grep “literal string” <filename>
+Example: 
+
+grep “apple” file1.txt                     //Displays all the lines with the word “apple” in the file1
+
+grep “apple” file1.txt  file2.txt   //Scan multiple documents and search the word “apple” in both files.
+Find command: The FIND command searches for files and folders based on their size, modification time, and access time. You can use this command to search files and directories. Find command have the following syntax:
+find <path> <search criteria> <action>
+Example:
+
+find –type  f                      // Command will find all the files
+
+find  –type  d                    //Command will find all the directories
+
+find .  –name file1.txt       //Command will find file1.txt in the current directory.
+49. How can we create a function in shell script?
+In other programming languages, shell functions are much like subroutines, procedures, and functions. The syntax for declaring a function is as follows:
+
+function_name () 
+{ 
+   list of commands
+} 
+Function_name is the name of your function, and that's what you'll use to call it from anywhere in your script. The function name must be followed by parentheses, then a list of commands enclosed in braces.
+
+Example:
+
+The following example shows how function can be used:
+
+#!/bin/sh
+# Define your function here
+ 
+Hello () 
+  {
+     echo "Hello World"
+  }
+ 
+# Invoke your function
+Hello
+The following output will be displayed after execution:
+
+$./test.sh
+Hello World
+50. How to use pipe commands?
+Pipe command allows you to use several commands in the same way, in which the output of one is used as input for another. Like a pipeline, each process output is directly input to the next one. A pipe is represented by the symbol "|". The flow of data through a pipeline is unidirectional, i.e., from left to right.
+
+Syntax :
+
+command_1 | command_2 | command_3 | .... | command_N
+Conclusion 
+You can automate a lot of repetitive manual tasks with shell scripting, which is an easy and powerful programming method. Modern programming languages offer many of the features that make them appealing to programmers. DevOps engineers and automation testers often find this concept vital in preparing for interviews. Shell scripting allows the development of simple to complex scripts. A number of daily tasks can be automated using shell scripting as well. We thought of making your job easier by putting together an ensemble of the most frequently asked interview questions and sample answers on shell scripting. These interview questions will definitely help you understand that shell is basically an interface between the user and the operating system, which interprets user commands to be executed by the kernel or operating system.
